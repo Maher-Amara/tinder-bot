@@ -1,6 +1,8 @@
 from selenium import webdriver
 from time import sleep
 
+from sercrets import email, password
+
 
 class TinderBot:
     def __init__(self):
@@ -9,29 +11,31 @@ class TinderBot:
         sleep(2)
 
     def login(self):
-        # login_btn = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/header/div[1]/div[2]/div/button')
-        # login_btn.click()
-        # sleep(2)
-        #
-        # fb_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/div/div[3]/span/div[2]/button')
-        # fb_btn.click()
-        # sleep(2)
-        #
-        # base_window = self.driver.window_handles[0]
-        # self.driver.switch_to.window(self.driver.window_handles[1])
-        #
-        #
-        # email_in = self.driver.find_element_by_xpath('//*[@id="email"]')
-        # email_in.send_keys('maheramara32@yahoo.fr')
-        #
-        # pw_in = self.driver.find_element_by_xpath('//*[@id="pass"]')
-        # pw_in.send_keys('GoToHellMariem9800')
-        #
-        # login_btn = self.driver.find_element_by_xpath('//*[@id="u_0_0"]')
-        # login_btn.click()
-        #
-        #
-        # self.driver.switch_to.window(base_window)
+        login_btn = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/header/div[1]/div[2]/div/button')
+        #login_btn = self.driver.find_element_by_xpath('//*[@id="o-1556761323"]/div/div[1]/div/main/div[1]/div/div/div/div/header/div/div[2]/div[2]/a')
+        #print(login_btn)
+        login_btn.click()
+        sleep(2)
+        
+        fb_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/div/div[3]/span/div[2]/button')
+        fb_btn.click()
+        sleep(2)
+        
+        base_window = self.driver.window_handles[0]
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        
+        
+        email_in = self.driver.find_element_by_xpath('//*[@id="email"]')
+        email_in.send_keys(email)
+        
+        pw_in = self.driver.find_element_by_xpath('//*[@id="pass"]')
+        pw_in.send_keys(password)
+        
+        login_btn = self.driver.find_element_by_xpath('//*[@id="u_0_0"]')
+        login_btn.click()
+        
+        
+        self.driver.switch_to.window(base_window)
         input("continue login then press a key")
         popup_1 = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
         popup_1.click()
